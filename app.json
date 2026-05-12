@@ -1,8 +1,8 @@
 {
-  "name": "𝐋𝐔𝐂𝐕𝐎𝐈𝐂𝐄-𝐗𝐌𝐃",
-  "description": "WhatsApp bot made by BIN ADNAN",
-  "logo": "https://files.catbox.moe/8a9abd.png",
-  "keywords": ["𝐋𝐔𝐂𝐕𝐎𝐈𝐂𝐄-𝐗𝐌𝐃"],
+  "name": "𝐁𝐔𝐆 𝐕𝐈𝐑𝐔𝐒 𝐁𝐎𝐓",
+  "description": "WhatsApp bot made by BUG VIRUS",
+  "logo": "https://files.catbox.moe/wpz46v.png",
+  "keywords": ["𝐁𝐔𝐆 𝐕𝐈𝐑𝐔𝐒 𝐁𝐎𝐓"],
   "success_url": "/",
 
   "stack": "container",
@@ -16,7 +16,7 @@
     "STICKER_NAME": {
       "description": "type your sticker pack name.",
       "required": true,
-      "value": "𝐋𝐔𝐂𝐕𝐎𝐈𝐂𝐄-𝐗𝐌𝐃"
+      "value": "𝐁𝐔𝐆 𝐕𝐈𝐑𝐔𝐒 𝐁𝐎𝐓"
     }, 
 
     "CUSTOM_STATUS_EMOJIS": {
@@ -84,27 +84,27 @@
     "AUTO_STATUS_MSG": {
       "description": "Type custom message on status reply",
       "required": true,
-      "value": "*𝐋𝐔𝐂𝐕𝐎𝐈𝐂𝐄-𝐗𝐌𝐃 𝐕𝐈𝐄𝐖𝐄𝐃✅*"
+      "value": "*𝐁𝐔𝐆 𝐕𝐈𝐑𝐔𝐒 𝐁𝐎𝐓 𝐕𝐈𝐄𝐖𝐄𝐃✅*"
    
      }, 
     
     "OWNER_NAME": {
       "description": "Type Bot Owner Name.",
       "required": false,
-      "value": "BIN ADNAN"
+      "value": "𝐁𝐔𝐆 𝐕𝐈𝐑𝐔𝐒"
     }, 
 
     "OWNER_NUMBER": {
       "description": "put the owner number for bot.",
       "required": false,
-      "value": "255770100487"
+      "value": "255790126448"
 
     }, 
 
     "BOT_NAME": {
       "description": "Type here the bot name.",
       "required": true,
-      "value": "𝐋𝐔𝐂𝐕𝐎𝐈𝐂𝐄-𝐗𝐌𝐃"
+      "value": "𝐁𝐔𝐆 𝐕𝐈𝐑𝐔𝐒 𝐁𝐎𝐓"
 
       }, 
 
@@ -137,13 +137,13 @@
     "MENU_IMAGE_URL": {
       "description": "add url for mention reply and menu if want.",
       "required": true,
-      "value": "https://files.catbox.moe/8a9abd.png"
+      "value": "https://files.catbox.moe/wpz46v.png"
     },
     
      "DESCRIPTION": {
       "description": "add caption for menu and other",
       "required": true,
-      "value": "*© 𝐋𝐔𝐂𝐕𝐎𝐈𝐂𝐄-𝐗𝐌𝐃*"
+      "value": "*© 𝐁𝐔𝐆 𝐕𝐈𝐑𝐔𝐒 𝐁𝐎𝐓*"
     },
 
       "DELETE_LINKS": {

@@ -1,4 +1,5 @@
 const { cmd } = require('../command');
+const config = require('../config');
 
 cmd({
     pattern: "ping",
@@ -12,27 +13,17 @@ async (conn, mek, m, { from }) => {
     try {
         const start = Date.now();
 
-        // send temporary message
-        const msg = await conn.sendMessage(from, { text: "🏓 Pinging..." }, { quoted: mek });
+        // Tuma message tupu kwanza
+        const msg = await conn.sendMessage(from, { text: "..." }, { quoted: mek });
 
         const end = Date.now();
-
         const speed = end - start;
-        const uptime = process.uptime().toFixed(0);
-        const ram = (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2);
 
-        let response = `
-╭━━━〔 🏓 PING STATUS 〕━━━╮
-┃ ⚡ Speed   : ${speed} ms
-┃ ⏱️ Uptime : ${uptime}s
-┃ 💾 RAM    : ${ram} MB
-╰━━━━━━━━━━━━━━━━━━━━━━━╯
-
-✅ Bot is running smoothly!
-`;
-
-        // edit message (clean result)
-        await conn.sendMessage(from, { text: response }, { quoted: mek });
+        // Edit na kuweka speed
+        await conn.sendMessage(from, { 
+            text: `*${config.BOT_NAME}*\n${speed} ms ⚡`,
+            edit: msg.key
+        });
 
     } catch (e) {
         console.log(e);

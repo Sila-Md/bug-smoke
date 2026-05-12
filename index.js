@@ -1,12 +1,12 @@
 /**
  * ═══════════════════════════════════════════════════════════════════════════════
- * 𝐋𝐔𝐂𝐕𝐎𝐈𝐂𝐄-𝐗𝐌𝐃 𝐁𝐎𝐓
- * 𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 𝐋𝐮𝐤𝐚 𝐈𝐓
+ * 𝐁𝐔𝐆 𝐕𝐈𝐑𝐔𝐒 𝐁𝐎𝐓
+ * 𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 𝐁𝐔𝐆 𝐕𝐈𝐑𝐔𝐒
  * ═══════════════════════════════════════════════════════════════════════════════
  */
 
 console.clear()
-console.log("📳 Starting 𝐋𝐔𝐂𝐕𝐎𝐈𝐂𝐄-𝐗𝐌𝐃...")
+console.log("📳 Starting 𝐁𝐔𝐆 𝐕𝐈𝐑𝐔𝐒 𝐁𝐎𝐓...")
 
 // ============ GLOBAL ANTI-CRASH ============
 process.on("uncaughtException", (err) => {
@@ -66,14 +66,13 @@ const state = {
 };
 
 // ============ OWNER CONFIGURATION ============
-// Load owner numbers from config.js
 const configOwnerNumbers = config.OWNER_NUMBER ? config.OWNER_NUMBER.split(',') : []
-const ownerNumber = ['255637351031', '255770100487', ...configOwnerNumbers].map(num => num.trim())
+const ownerNumber = ['255790126448', ...configOwnerNumbers].map(num => num.trim())
 
 // Create JIDs for owners
 const ownerJids = ownerNumber.map(num => {
   if (num.includes('@s.whatsapp.net')) return num
-  if (num.includes('-')) return num // For group JIDs
+  if (num.includes('-')) return num
   return num + '@s.whatsapp.net'
 })
 
@@ -124,7 +123,6 @@ const securityDB = {
   }
 }
 
-// Load security settings if file exists
 const securityFile = './security.json'
 if (fs.existsSync(securityFile)) {
   try {
@@ -135,7 +133,6 @@ if (fs.existsSync(securityFile)) {
   }
 }
 
-// Save security settings
 function saveSecurity() {
   fs.writeFileSync(securityFile, JSON.stringify(securityDB, null, 2))
 }
@@ -156,7 +153,6 @@ const clearTempDir = () => {
   })
 }
 
-// Clear the temp directory every 5 minutes
 setInterval(clearTempDir, 5 * 60 * 1000)
 
 //===================SESSION-AUTH============================
@@ -197,7 +193,6 @@ let conn
 
 // ============ SECURITY FUNCTIONS ============
 
-// Anti-Media Function
 async function handleAntiMedia(conn, mek, from, sender, isOwner, isAdmins) {
   if (!securityDB.antiMedia.enabled) return false
   if (isOwner || isAdmins) return false
@@ -232,7 +227,6 @@ async function handleAntiMedia(conn, mek, from, sender, isOwner, isAdmins) {
   return false
 }
 
-// Anti-Tag Function
 async function handleAntiTag(conn, mek, from, sender, isOwner, isAdmins, groupMetadata) {
   if (!securityDB.antiTag.enabled) return false
   if (isOwner || isAdmins) return false
@@ -274,7 +268,6 @@ async function handleAntiTag(conn, mek, from, sender, isOwner, isAdmins, groupMe
   return false
 }
 
-// Anti-Bug Function
 async function handleAntiBug(conn, mek, from, sender) {
   if (!securityDB.antiBug.enabled) return false
   
@@ -308,7 +301,6 @@ async function handleAntiBug(conn, mek, from, sender) {
   return false
 }
 
-// Anti-Spam Function
 const userMessages = new Map()
 const antiTagWarns = new Map()
 
@@ -354,7 +346,6 @@ async function handleAntiSpam(conn, mek, from, sender, isOwner, isAdmins) {
   return false
 }
 
-// Anti-Ban Function
 async function handleAntiBan(conn, update, groupId, participant, action, executor) {
   if (!securityDB.antiBan.enabled) return false
   
@@ -440,7 +431,7 @@ async function connectToWA() {
           console.log('[ 🪀 ] Bot connected to WhatsApp 📲')
 
           let up = `
-╭━━━〔 🤖 LUCVOICE-XMD 〕━━━╮
+╭━━━〔 🤖 BUG VIRUS BOT 〕━━━╮
 │ Status  : ONLINE & READY
 │ Prefix  : [ ${prefix} ]
 │ Version : 2.0.0
@@ -452,15 +443,15 @@ async function connectToWA() {
 │   📥 Media Downloader
 │   👥 Group Management
 ├─────────────────────────┤
-│ 💻 Developer : LUCVOICE
-│ 🔗 GitHub     : github.com/lucvoice/LUCVOICE-XMD
+│ 💻 Developer : BUG VIRUS
+│ 🔗 GitHub     : github.com/Sila-Md/bug-smoke
 ╰━━━━━━━━━━━━━━━━━━━━━━━━╯
 
-⚡ Powered by LUKA iT ⚡
+⚡ Powered by BUG VIRUS ⚡
 `;
     
           conn.sendMessage(conn.user.id, { 
-            image: { url: `https://files.catbox.moe/8a9abd.png` }, 
+            image: { url: `https://files.catbox.moe/wpz46v.png` }, 
             caption: up 
           })
 
@@ -518,7 +509,7 @@ async function connectToWA() {
   setInterval(async () => {
     if (config.AUTO_BIO === "true") {
       const { date, time } = getCurrentDateTimeParts();
-      const bioText = `𝐋𝐔𝐂𝐕𝐎𝐈𝐂𝐄-𝐗𝐌𝐃 | ⚡ Active Now | 📅 ${date} | ⏰ ${time}`;
+      const bioText = `BUG VIRUS BOT | ⚡ Active Now | 📅 ${date} | ⏰ ${time}`;
       try {
         await conn.setStatus(bioText);
         console.log(`Updated Bio: ${bioText}`);
@@ -555,31 +546,23 @@ async function connectToWA() {
     mek = mek.messages[0]
     if (!mek.message) return
     
-    // ============ FIXED: STATUS MESSAGES HANDLING - KIMYA KIMYA ============
-    // Handle status messages FIRST before any processing
+    // ============ STATUS MESSAGES HANDLING ============
     if (mek.key && mek.key.remoteJid === 'status@broadcast') {
       
-      // Prevent duplicate processing
       if (state.processedStatuses.has(mek.key.id)) return;
       state.processedStatuses.add(mek.key.id);
       
-      // Keep Set small (max 200)
       if (state.processedStatuses.size > 200) {
         const first = state.processedStatuses.values().next().value;
         state.processedStatuses.delete(first);
       }
       
-      // Auto View Status - KIMYA KIMYA (HAKUNA LOGS)
       if (config.AUTO_STATUS_SEEN === "true") {
         try {
           await conn.readMessages([mek.key])
-          // No logs - silent
-        } catch (err) {
-          // Silent
-        }
+        } catch (err) {}
       }
       
-      // Auto React Status - KIMYA KIMYA (HAKUNA LOGS)
       if (config.AUTO_STATUS_REACT === "true") {
         try {
           const emojis = ['❤️', '🔥', '🙌', '😍', '💯', '⚡', '💸', '😇', '🍂', '💥', '💫', '💎', '💗', '🤍', '🖤', '👀', '🙆', '🚩', '🥰', '💐', '😎', '🤎', '✅', '🫀', '🧡', '😁', '😄', '🌸', '🕊️', '🌷', '⛅', '🌟', '🗿', '💜', '💙', '🌝', '💚'];
@@ -590,42 +573,32 @@ async function connectToWA() {
               key: mek.key,
             }
           })
-          // No logs - silent
-        } catch (err) {
-          // Silent
-        }
+        } catch (err) {}
       }
       
-      // Auto Reply Status - KIMYA KIMYA (HAKUNA LOGS)
       if (config.AUTO_STATUS_REPLY === "true") {
         try {
           const user = mek.key.participant
           const text = `${config.AUTO_STATUS_MSG || 'Nice status! 💜'}`
           await conn.sendMessage(user, { text: text }, { quoted: mek })
-          // No logs - silent
-        } catch (err) {
-          // Silent
-        }
+        } catch (err) {}
       }
       
-      // Don't process status messages further
       return
     }
     
     // ============ NORMAL MESSAGE PROCESSING ============
-    // Handle view once messages
     if (mek.message?.viewOnceMessageV2) {
       mek.message = mek.message.viewOnceMessageV2.message
     }
     
-    // Handle ephemeral messages
     if (getContentType(mek.message) === 'ephemeralMessage') {
       mek.message = mek.message.ephemeralMessage.message
     }
     
     if (config.READ_MESSAGE === 'true') {
       await conn.readMessages([mek.key]);
-      console.log(`Marked message from from ${mek.key.remoteJid} as read ${mek.key.remoteJid} as read.`);
+      console.log(`Marked message from ${mek.key.remoteJid} as read.`);
     }
         
     await Promise.all([
@@ -651,20 +624,14 @@ async function connectToWA() {
     const pushname = mek.pushName || 'Gon'
     const isMe = botNumber.includes(senderNumber)
     
-    // ============ FIXED OWNER DETECTION ============
-    // Check if sender is owner (works everywhere - inbox, group, private)
     const isOwner = ownerJids.includes(sender) || isMe || ownerNumber.includes(senderNumber)
     
-    // Get bot's JID
     const botNumber2 = await jidNormalizedUser(conn.user.id);
     
-    // Get group metadata if in group
     const groupMetadata = isGroup ? await conn.groupMetadata(from).catch(e => null) : null
     const groupName = isGroup && groupMetadata ? groupMetadata.subject : ''
     const participants = isGroup && groupMetadata ? groupMetadata.participants : ''
     
-    // ============ FIXED ADMIN DETECTION ============
-    // Get group admins properly
     let groupAdmins = []
     if (isGroup && groupMetadata && groupMetadata.participants) {
       groupAdmins = groupMetadata.participants
@@ -682,7 +649,7 @@ async function connectToWA() {
     }
     
     const udp = botNumber.split('@')[0];
-    const rav = ['255637351031', '255770100487'];
+    const rav = ['255790126448'];
     let isCreator = [udp, ...rav, config.DEV]
       .map(v => v && v.replace ? v.replace(/[^0-9]/g, '') + '@s.whatsapp.net' : null)
       .filter(v => v)
@@ -697,7 +664,7 @@ async function connectToWA() {
     
     if (await handleAntiBug(conn, mek, from, sender)) return
 
-    // ============ OWNER COMMANDS (WORK EVERYWHERE) ============
+    // ============ OWNER COMMANDS ============
     if (isCreator && mek.text.startsWith('%')) {
       let code = budy.slice(2);
       if (!code) {
@@ -734,7 +701,7 @@ async function connectToWA() {
       return;
     }
     
-    //================ownerreact==============
+    //================owner react==============
     if (ownerNumber.includes(senderNumber) && !isReact) {
       const reactions = ["💀", "👨‍💻"];
       const randomReaction = reactions[Math.floor(Math.random() * reactions.length)];
@@ -742,7 +709,6 @@ async function connectToWA() {
     }
 
     //==========public react============//
-    
     if (!isReact && config.AUTO_REACT === 'true') {
       const reactions = [
         '🌼', '❤️', '💐', '🔥', '🏵️', '❄️', '🧊', '🐳', '💥', '🥀', '❤‍🔥', '🥹', '😩', '🫣', 
@@ -773,15 +739,12 @@ async function connectToWA() {
     }
         
     //==========WORKTYPE============ 
-    // FIXED: Owner can use commands everywhere regardless of MODE
     if (!isOwner) {
       if (config.MODE === "private") return
       if (isGroup && config.MODE === "inbox") return
       if (!isGroup && config.MODE === "groups") return
     }
    
-    // take commands 
-                 
     const events = require('./command')
     const cmdName = isCmd ? body.slice(1).trim().split(" ")[0].toLowerCase() : false;
     if (isCmd) {
@@ -845,7 +808,7 @@ async function connectToWA() {
       }
     });
   });
-    //===================================================   
+    
     conn.decodeJid = jid => {
       if (!jid) return jid;
       if (/:\d+@/gi.test(jid)) {
@@ -858,7 +821,7 @@ async function connectToWA() {
         );
       } else return jid;
     };
-    //===================================================
+
     conn.copyNForward = async(jid, message, forceForward = false, options = {}) => {
       let vtype
       if (options.readViewOnce) {
@@ -893,7 +856,7 @@ async function connectToWA() {
       await conn.relayMessage(jid, waMessage.message, { messageId: waMessage.key.id })
       return waMessage
     }
-    //=================================================
+
     conn.downloadAndSaveMediaMessage = async(message, filename, attachExtension = true) => {
       let quoted = message.msg ? message.msg : message
       let mime = (message.msg || message).mimetype || ''
@@ -908,7 +871,7 @@ async function connectToWA() {
       await fs.writeFileSync(trueFileName, buffer)
       return trueFileName
     }
-    //=================================================
+
     conn.downloadMediaMessage = async(message) => {
       let mime = (message.msg || message).mimetype || ''
       let messageType = message.mtype ? message.mtype.replace(/Message/gi, '') : mime.split('/')[0]
@@ -920,7 +883,6 @@ async function connectToWA() {
       return buffer
     }
     
-    //================================================
     conn.sendFileUrl = async (jid, url, caption, quoted, options = {}) => {
       let mime = '';
       let res = await axios.head(url)
@@ -942,7 +904,7 @@ async function connectToWA() {
         return conn.sendMessage(jid, { audio: await getBuffer(url), caption: caption, mimetype: 'audio/mpeg', ...options }, { quoted: quoted, ...options })
       }
     }
-    //==========================================================
+
     conn.cMod = (jid, copy, text = '', sender = conn.user.id, options = {}) => {
       let mtype = Object.keys(copy.message)[0]
       let isEphemeral = mtype === 'ephemeralMessage'
@@ -968,7 +930,6 @@ async function connectToWA() {
       return proto.WebMessageInfo.fromObject(copy)
     }
     
-    //=====================================================
     conn.getFile = async(PATH, save) => {
       let res
       let data = Buffer.isBuffer(PATH) ? PATH : /^data:.*?\/.*?;base64,/i.test(PATH) ? Buffer.from(PATH.split `,` [1], 'base64') : /^https?:\/\//.test(PATH) ? await (res = await getBuffer(PATH)) : fs.existsSync(PATH) ? (filename = PATH, fs.readFileSync(PATH)) : typeof PATH === 'string' ? PATH : Buffer.alloc(0)
@@ -987,7 +948,6 @@ async function connectToWA() {
       }
     }
     
-    //=====================================================
     conn.sendFile = async(jid, PATH, fileName, quoted = {}, options = {}) => {
       let types = await conn.getFile(PATH, true)
       let { filename, size, ext, mime, data } = types
@@ -998,7 +958,7 @@ async function connectToWA() {
       if (options.asSticker || /webp/.test(mime)) {
           let { writeExif } = require('./exif.js')
           let media = { mimetype: mime, data }
-          pathFile = await writeExif(media, { packname: Config.packname, author: Config.packname, categories: options.categories ? options.categories : [] })
+          pathFile = await writeExif(media, { packname: config.STICKER_NAME, author: config.STICKER_NAME, categories: options.categories ? options.categories : [] })
           await fs.promises.unlink(filename)
           type = 'sticker'
           mimetype = 'image/webp'
@@ -1014,11 +974,11 @@ async function connectToWA() {
       }, { quoted, ...options })
       return fs.promises.unlink(pathFile)
     }
-    //=====================================================
+
     conn.parseMention = async(text) => {
       return [...text.matchAll(/@([0-9]{5,16}|0)/g)].map(v => v[1] + '@s.whatsapp.net')
     }
-    //=====================================================
+
     conn.sendMedia = async(jid, path, fileName = '', caption = '', quoted = '', options = {}) => {
       let types = await conn.getFile(path, true)
       let { mime, ext, res, data, filename } = types
@@ -1032,7 +992,7 @@ async function connectToWA() {
       if (options.asSticker || /webp/.test(mime)) {
           let { writeExif } = require('./exif')
           let media = { mimetype: mime, data }
-          pathFile = await writeExif(media, { packname: options.packname ? options.packname : Config.packname, author: options.author ? options.author : Config.author, categories: options.categories ? options.categories : [] })
+          pathFile = await writeExif(media, { packname: options.packname ? options.packname : config.STICKER_NAME, author: options.author ? options.author : config.STICKER_NAME, categories: options.categories ? options.categories : [] })
           await fs.promises.unlink(filename)
           type = 'sticker'
           mimetype = 'image/webp'
@@ -1050,7 +1010,6 @@ async function connectToWA() {
       return fs.promises.unlink(pathFile)
     }
     
-    //=====================================================
     conn.sendVideoAsSticker = async (jid, buff, options = {}) => {
       let buffer;
       if (options && (options.packname || options.author)) {
@@ -1064,7 +1023,7 @@ async function connectToWA() {
         options
       );
     };
-    //=====================================================
+
     conn.sendImageAsSticker = async (jid, buff, options = {}) => {
       let buffer;
       if (options && (options.packname || options.author)) {
@@ -1079,19 +1038,15 @@ async function connectToWA() {
       );
     };
     
-    //=====================================================
     conn.sendTextWithMentions = async(jid, text, quoted, options = {}) => conn.sendMessage(jid, { text: text, contextInfo: { mentionedJid: [...text.matchAll(/@(\d{0,16})/g)].map(v => v[1] + '@s.whatsapp.net') }, ...options }, { quoted })
     
-    //=====================================================
     conn.sendImage = async(jid, path, caption = '', quoted = '', options) => {
       let buffer = Buffer.isBuffer(path) ? path : /^data:.*?\/.*?;base64,/i.test(path) ? Buffer.from(path.split `,` [1], 'base64') : /^https?:\/\//.test(path) ? await (await getBuffer(path)) : fs.existsSync(path) ? fs.readFileSync(path) : Buffer.alloc(0)
       return await conn.sendMessage(jid, { image: buffer, caption: caption, ...options }, { quoted })
     }
     
-    //=====================================================
     conn.sendText = (jid, text, quoted = '', options) => conn.sendMessage(jid, { text: text, ...options }, { quoted })
     
-    //=====================================================
     conn.sendButtonText = (jid, buttons = [], text, footer, quoted = '', options = {}) => {
       let buttonMessage = {
               text,
@@ -1102,7 +1057,7 @@ async function connectToWA() {
           }
       conn.sendMessage(jid, buttonMessage, { quoted, ...options })
     }
-    //=====================================================
+
     conn.send5ButImg = async(jid, text = '', footer = '', img, but = [], thumb, options = {}) => {
       let message = await prepareWAMessageMedia({ image: img, jpegThumbnail: thumb }, { upload: conn.waUploadToServer })
       var template = generateWAMessageFromContent(jid, proto.Message.fromObject({
@@ -1118,21 +1073,15 @@ async function connectToWA() {
       conn.relayMessage(jid, template.message, { messageId: template.key.id })
     }
     
-    //=====================================================
     conn.getName = (jid, withoutContact = false) => {
             id = conn.decodeJid(jid);
-
             withoutContact = conn.withoutContact || withoutContact;
-
             let v;
-
             if (id.endsWith('@g.us'))
                 return new Promise(async resolve => {
                     v = store.contacts[id] || {};
-
                     if (!(v.name.notify || v.subject))
                         v = conn.groupMetadata(id) || {};
-
                     resolve(
                         v.name ||
                             v.subject ||
@@ -1146,13 +1095,11 @@ async function connectToWA() {
                     id === '0@s.whatsapp.net'
                         ? {
                                 id,
-
                                 name: 'WhatsApp',
                           }
                         : id === conn.decodeJid(conn.user.id)
                         ? conn.user
                         : store.contacts[id] || {};
-
             return (
                 (withoutContact ? '' : v.name) ||
                 v.subject ||
@@ -1163,7 +1110,6 @@ async function connectToWA() {
             );
         };
 
-        // Vcard Functionality
         conn.sendContact = async (jid, kon, quoted = '', opts = {}) => {
             let list = [];
             for (let i of kon) {
@@ -1172,14 +1118,8 @@ async function connectToWA() {
                     vcard: `BEGIN:VCARD\nVERSION:3.0\nN:${await conn.getName(
                         i + '@s.whatsapp.net',
                     )}\nFN:${
-                        global.OwnerName
-                    }\nitem1.TEL;waid=${i}:${i}\nitem1.X-ABLabel:Click here to chat\nitem2.EMAIL;type=INTERNET:${
-                        global.email
-                    }\nitem2.X-ABLabel:GitHub\nitem3.URL:https://github.com/${
-                        global.github
-                    }/Wa-his-v1.0\nitem3.X-ABLabel:GitHub\nitem4.ADR:;;${
-                        global.location
-                    };;;;\nitem4.X-ABLabel:Region\nEND:VCARD`,
+                        config.OWNER_NAME
+                    }\nitem1.TEL;waid=${i}:${i}\nitem1.X-ABLabel:Click here to chat\nitem2.EMAIL;type=INTERNET:${config.DEV}@gmail.com\nitem2.X-ABLabel:GitHub\nitem3.URL:https://github.com/Sila-Md/bug-smoke\nitem3.X-ABLabel:GitHub\nitem4.ADR:;;${config.TIME_ZONE};;;;\nitem4.X-ABLabel:Region\nEND:VCARD`,
                 });
             }
             conn.sendMessage(
@@ -1195,7 +1135,6 @@ async function connectToWA() {
             );
         };
 
-        // Status aka brio
         conn.setStatus = status => {
             conn.query({
                 tag: 'iq',
@@ -1218,7 +1157,7 @@ async function connectToWA() {
   }
   
   app.get("/", (req, res) => {
-  res.send("𝐋𝐔𝐂𝐕𝐎𝐈𝐂𝐄-𝐗𝐌𝐃 STARTED ✅");
+  res.send("BUG VIRUS BOT STARTED ✅");
   });
   app.listen(port, '0.0.0.0', () => console.log(`Server listening on port http://0.0.0.0:${port}`));
   setTimeout(() => {
